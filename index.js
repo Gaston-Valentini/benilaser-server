@@ -32,14 +32,21 @@ app.get("/reviews", (req, res) => {
                 fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`)
                     .then((response) => response.json())
                     .then((data) => {
-                        console.log(data.result);
+                        return res.status(200).json({
+                            success: true,
+                            data: data.result.reviews,
+                        });
                     })
                     .catch((error) => {
-                        console.error("Error al obtener detalles del lugar:", error);
+                        console.log(error);
+                        return res.status(500).json({
+                            success: false,
+                            message: "Internal server error",
+                        });
                     });
             })
             .catch((error) => {
-                console.error("Error al obtener el ID del lugar:", error);
+                console.log(error);
             });
     } catch (error) {
         console.log(error);
