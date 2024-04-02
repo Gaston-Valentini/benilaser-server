@@ -18,3 +18,34 @@ try {
 } catch (error) {
     console.log(error);
 }
+
+app.get("/reviews", (req, res) => {
+    const apiKey = process.env.API_KEY;
+    const placeName = "Benilaser";
+
+    try {
+        fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${placeName}&inputtype=textquery&fields=place_id&key=${apiKey}`)
+            .then((response) => response.json())
+            .then((data) => {
+                const placeId = data.candidates[0].place_id;
+
+                fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data.result);
+                    })
+                    .catch((error) => {
+                        console.error("Error al obtener detalles del lugar:", error);
+                    });
+            })
+            .catch((error) => {
+                console.error("Error al obtener el ID del lugar:", error);
+            });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+        });
+    }
+});
