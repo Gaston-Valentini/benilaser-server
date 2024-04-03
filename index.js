@@ -20,11 +20,13 @@ try {
 }
 
 app.get("/reviews", (req, res) => {
-    const apiKey = process.env.API_KEY;
+    const apiKey = process.env.GOOGLE_API_KEY;
     const placeName = "Benilaser";
 
     try {
-        fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${placeName}&inputtype=textquery&fields=place_id&key=${apiKey}`)
+        fetch(
+            `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${placeName}&inputtype=textquery&fields=place_id&key=${apiKey}`
+        )
             .then((response) => response.json())
             .then((data) => {
                 const placeId = data.candidates[0].place_id;
