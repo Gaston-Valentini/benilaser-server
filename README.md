@@ -6,7 +6,7 @@ Este proyecto se trata de un pequeño servidor desarrollado para la landing page
 
 ## Despliegue de la aplicación
 
-Enlace al despliegue
+https://www.benilaser.es
 
 ## Instrucciones de Uso
 
