@@ -17,10 +17,9 @@
 
 ## Descripción del proyecto y objetivo
 
-Este proyecto consiste en el desarrollo de un pequeño servidor intermedio para la página web de [Benilaser](https://www.benilaser.es), una clínica
-especializada en eliminación láser ubicada en Benidorm, Alicante, España. El desarrollo de este proyecto se realizó con el objetivo de complementar al
-[proyecto cliente](https://github.com/Gaston-Valentini/benilaser-client), ya que fué necesario configurar un servidor intermedio para hacer las
-peticiones de las reseñas a la API de Google y que este servidor a su vez envíe la información al cliente, y así evitar poroblemas de CORS.
+Este proyecto consiste en el desarrollo de un pequeño servidor intermedio para la página web de [Benilaser](https://www.benilaser.es), una clínica especializada en eliminación láser ubicada en
+Benidorm, Alicante, España. El desarrollo de este proyecto se realizó con el objetivo de complementar al [proyecto cliente](https://github.com/Gaston-Valentini/benilaser-client), ya que fué necesario
+configurar un servidor intermedio para hacer las peticiones de las reseñas a la API de Google y que este servidor a su vez envíe la información al cliente, y así evitar poroblemas de CORS.
 
 ## Tecnologías
 
@@ -62,7 +61,7 @@ Para correr este servicio de manera local deberá seguir los siguientes pasos:
 ## Estructura del proyecto
 
 ```
-benilaser-client/
+benilaser-server/
 ├── public/ (Contiene las imágenes del README.md)
 ├── .env.example (Contiene los ejemplos de las variables de entorno)
 ├── .gitignore (Contiene los archivos y carpetas que deben ser ignorados por git)
